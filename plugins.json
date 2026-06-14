@@ -6,8 +6,8 @@
     "short_desc": "通过 workflow 管理 ANI-RSS 订阅。",
     "author": "memoriass",
     "repo": "https://github.com/memoriass/astrbot_plugin_ani_rss",
-    "version": "1.0.2",
-    "updated_at": "2026-06-14T16:24:57Z",
+    "version": "1.0.3",
+    "updated_at": "2026-06-14T16:54:33Z",
     "download_url": "https://github.com/memoriass/astrbot_plugin_ani_rss/archive/refs/heads/main.zip",
     "support_platforms": [
       "aiocqhttp",
