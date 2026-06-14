@@ -6,8 +6,8 @@
     "short_desc": "通过 workflow 管理 ANI-RSS 订阅。",
     "author": "memoriass",
     "repo": "https://github.com/memoriass/astrbot_plugin_ani_rss",
-    "version": "1.0.3",
-    "updated_at": "2026-06-14T16:54:33Z",
+    "version": "1.0.7",
+    "updated_at": "2026-06-14T18:02:28Z",
     "download_url": "https://github.com/memoriass/astrbot_plugin_ani_rss/archive/refs/heads/main.zip",
     "support_platforms": [
       "aiocqhttp",
@@ -21,12 +21,12 @@
   "ncqq-manager": {
     "name": "ncqq_manager",
     "display_name": "NapCatQQ Manager",
-    "desc": "NapCatQQ 容器控制与后端路由插件，支持实例管理、登录状态检查、配置读写等功能",
+    "desc": "NapCatQQ 容器控制与后端路由插件，支持多 ncqq-manager 面板、实例管理、登录状态检查和配置诊断",
     "short_desc": "NapCatQQ 容器与后端路由管理",
     "author": "memoriass",
     "repo": "https://github.com/memoriass/astrbot_plugin_ncqq_manager",
-    "version": "2.0.4",
-    "updated_at": "2026-06-14T16:02:25Z",
+    "version": "2.1.0",
+    "updated_at": "2026-06-14T18:41:59Z",
     "download_url": "https://github.com/memoriass/astrbot_plugin_ncqq_manager/archive/refs/heads/main.zip",
     "support_platforms": [
       "aiocqhttp"
