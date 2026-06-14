@@ -7,7 +7,6 @@ import re
 import sys
 import urllib.error
 import urllib.request
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -201,7 +200,6 @@ def main() -> int:
     md5_json = json.dumps(
         {
             "md5": md5,
-            "generated_at": datetime.now(timezone.utc).isoformat(),
             "count": len(registry),
         },
         ensure_ascii=False,
@@ -220,4 +218,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
