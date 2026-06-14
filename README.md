@@ -1,6 +1,6 @@
 # memoriass AstrBot Plugin Source
 
-Personal AstrBot plugin registry generated from public GitHub repositories under `memoriass`.
+Personal AstrBot plugin registry generated from selected public GitHub repositories.
 
 ## Source URL
 
@@ -34,7 +34,7 @@ git push
 
 ## Automation
 
-GitHub Actions refreshes the registry every 6 hours and only commits when
+GitHub Actions refreshes the listed repositories every 6 hours and only commits when
 `plugins.json` or `plugins-md5.json` changes.
 
 You can also trigger it manually from:
@@ -45,4 +45,15 @@ Actions -> Update AstrBot Plugin Registry -> Run workflow
 
 ## Included Repositories
 
-The generator includes public repositories that expose a root-level `metadata.yaml` compatible with AstrBot plugins.
+The generator only includes repositories listed in `repositories.json`.
+
+To add a new plugin, add its public repository to `repositories.json`:
+
+```json
+{
+  "owner": "memoriass",
+  "name": "astrbot_plugin_example"
+}
+```
+
+Then run the workflow manually or wait for the next scheduled run.

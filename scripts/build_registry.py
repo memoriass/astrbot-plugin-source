@@ -12,6 +12,7 @@ from typing import Any
 
 
 DEFAULT_OWNER = "memoriass"
+DEFAULT_REPOSITORIES_FILE = Path(__file__).resolve().parents[1] / "repositories.json"
 USER_AGENT = "memoriass-astrbot-plugin-source-builder"
 
 
@@ -103,32 +104,45 @@ def normalize_market_key(value: str) -> str:
     return value or "plugin"
 
 
-def fetch_public_repos(owner: str) -> list[dict[str, Any]]:
-    repos: list[dict[str, Any]] = []
-    page = 1
-    while True:
-        url = (
-            f"https://api.github.com/users/{owner}/repos"
-            f"?per_page=100&page={page}&sort=updated&type=owner"
-        )
-        batch = request_json(url)
-        if not batch:
-            break
-        repos.extend(batch)
-        if len(batch) < 100:
-            break
-        page += 1
-    return repos
+def load_repository_specs(path: Path, default_owner: str) -> list[dict[str, str]]:
+    raw_specs = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(raw_specs, list):
+        raise ValueError("repositories.json must contain a list.")
+
+    specs: list[dict[str, str]] = []
+    for item in raw_specs:
+        if isinstance(item, str):
+            if "/" in item:
+                owner, name = item.split("/", 1)
+            else:
+                owner, name = default_owner, item
+        elif isinstance(item, dict):
+            owner = str(item.get("owner") or default_owner).strip()
+            name = str(item.get("name") or item.get("repo") or "").strip()
+        else:
+            raise ValueError("Repository entries must be strings or objects.")
+
+        if not owner or not name:
+            raise ValueError(f"Invalid repository entry: {item!r}")
+        specs.append({"owner": owner, "name": name})
+
+    return specs
 
 
-def build_registry(owner: str) -> dict[str, dict[str, Any]]:
+def fetch_repo(owner: str, repo_name: str) -> dict[str, Any]:
+    return request_json(f"https://api.github.com/repos/{owner}/{repo_name}")
+
+
+def build_registry(repo_specs: list[dict[str, str]]) -> dict[str, dict[str, Any]]:
     registry: dict[str, dict[str, Any]] = {}
 
-    for repo in fetch_public_repos(owner):
+    for spec in repo_specs:
+        owner = spec["owner"]
+        repo_name = spec["name"]
+        repo = fetch_repo(owner, repo_name)
         if repo.get("private") or repo.get("archived"):
             continue
 
-        repo_name = repo["name"]
         branch = repo.get("default_branch") or "main"
         html_url = repo["html_url"]
         raw_base = f"https://raw.githubusercontent.com/{owner}/{repo_name}/{branch}"
@@ -183,13 +197,19 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--owner", default=DEFAULT_OWNER)
     parser.add_argument(
+        "--repositories",
+        default=str(DEFAULT_REPOSITORIES_FILE),
+        help="Path to the fixed repository allowlist.",
+    )
+    parser.add_argument(
         "--output-dir",
         default=str(Path(__file__).resolve().parents[1]),
     )
     args = parser.parse_args()
 
     output_dir = Path(args.output_dir).resolve()
-    registry = build_registry(args.owner)
+    repo_specs = load_repository_specs(Path(args.repositories).resolve(), args.owner)
+    registry = build_registry(repo_specs)
     if not registry:
         print("No AstrBot plugin repositories were found.", file=sys.stderr)
         return 1
