@@ -26,7 +26,7 @@
     "author": "memoriass",
     "repo": "https://github.com/memoriass/astrbot_plugin_ncqq_manager",
     "version": "2.1.0",
-    "updated_at": "2026-06-14T19:37:36Z",
+    "updated_at": "2026-06-15T02:24:40Z",
     "download_url": "https://github.com/memoriass/astrbot_plugin_ncqq_manager/archive/refs/heads/main.zip",
     "support_platforms": [
       "aiocqhttp"
