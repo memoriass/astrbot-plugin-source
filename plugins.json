@@ -34,15 +34,16 @@
     "astrbot_version": ">=4.25.0,<5.0.0",
     "logo": "https://raw.githubusercontent.com/memoriass/astrbot_plugin_ncqq_manager/main/logo.png"
   },
-  "bilibili-push": {
-    "name": "bilibili_push",
+  "astrbot-plugin-bilibili-push": {
+    "name": "astrbot_plugin_bilibili_push",
     "display_name": "Bilibili 动态与直播推送",
     "desc": "订阅 Bilibili UP 主动态和直播状态，自动推送到群聊，支持链接自动解析。",
     "author": "memoriass",
     "repo": "https://github.com/memoriass/astrbot_plugin_bilibili_push",
-    "version": "1.0.1",
-    "updated_at": "2026-04-11T10:30:06Z",
-    "download_url": "https://github.com/memoriass/astrbot_plugin_bilibili_push/archive/refs/heads/master.zip"
+    "version": "1.2.8",
+    "updated_at": "2026-06-17T18:19:53Z",
+    "download_url": "https://github.com/memoriass/astrbot_plugin_bilibili_push/archive/refs/heads/master.zip",
+    "logo": "https://raw.githubusercontent.com/memoriass/astrbot_plugin_bilibili_push/master/logo.png"
   },
   "webhook-push": {
     "name": "Webhook Push",
