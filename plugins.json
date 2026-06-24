@@ -25,8 +25,8 @@
     "short_desc": "NapCatQQ 容器与后端路由管理",
     "author": "memoriass",
     "repo": "https://github.com/memoriass/astrbot_plugin_ncqq_manager",
-    "version": "2.1.0",
-    "updated_at": "2026-06-15T13:28:19Z",
+    "version": "2.2.0-beta.2",
+    "updated_at": "2026-06-24T01:41:35Z",
     "download_url": "https://github.com/memoriass/astrbot_plugin_ncqq_manager/archive/refs/heads/main.zip",
     "support_platforms": [
       "aiocqhttp"
