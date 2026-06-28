@@ -25,8 +25,8 @@
     "short_desc": "NapCatQQ 容器与后端路由管理",
     "author": "memoriass",
     "repo": "https://github.com/memoriass/astrbot_plugin_ncqq_manager",
-    "version": "2.2.0-beta.3",
-    "updated_at": "2026-06-24T08:17:28Z",
+    "version": "2.2.0-beta.4",
+    "updated_at": "2026-06-28T13:00:31Z",
     "download_url": "https://github.com/memoriass/astrbot_plugin_ncqq_manager/archive/refs/heads/main.zip",
     "support_platforms": [
       "aiocqhttp"
@@ -40,8 +40,8 @@
     "desc": "订阅 Bilibili UP 主动态和直播状态，自动推送到群聊，支持链接自动解析。",
     "author": "memoriass",
     "repo": "https://github.com/memoriass/astrbot_plugin_bilibili_push",
-    "version": "1.2.23",
-    "updated_at": "2026-06-25T02:29:08Z",
+    "version": "1.2.24",
+    "updated_at": "2026-06-28T12:48:43Z",
     "download_url": "https://github.com/memoriass/astrbot_plugin_bilibili_push/archive/refs/heads/master.zip",
     "logo": "https://raw.githubusercontent.com/memoriass/astrbot_plugin_bilibili_push/master/logo.png"
   },
